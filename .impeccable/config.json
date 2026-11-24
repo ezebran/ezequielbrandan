@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "docs/fase-1-propuesta.html"
+        ],
+        "createdAt": "2026-11-24T19:35:00.391Z",
+        "reason": "Claude: the flagged rows are ruled lists that use only a 1px top/bottom rule (index, page map, component list, social links), not boxed containers; the side edges are open by design in this planning document"
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+# dependencias
+/node_modules
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# producción
+/build
+
+# varios
+.DS_Store
+*.pem
+npm-debug.log*
+
+# entorno local
+.env*.local
+.vercel
+
+# herramientas locales
+.claude/worktrees/
+.impeccable/hook.cache.json
+.impeccable/review/
+.impeccable/config.local.json

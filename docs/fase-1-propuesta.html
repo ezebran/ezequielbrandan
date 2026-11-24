@@ -1,0 +1,567 @@
+<title>Portfolio Ezequiel Brandan · Fase 1</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap">
+<style>
+/* Layout: dossier de obra. Grilla de 12 columnas, láminas (plates) a sangre y fichas técnicas en mono. Un solo tema, oscuro, por decisión del brief. */
+:root{
+  color-scheme: dark;
+  --bg:#101110;
+  --bg-2:#191B19;
+  --bg-3:#202320;
+  --line:#2B2E2A;
+  --fg:#F4F4F0;
+  --fg-2:#A0A39D;
+  --fg-3:#878A83;
+  --lime:#B9FD0E;
+  --lime-ink:#101110;
+  --f-display:"Archivo", "Arial Narrow", Arial, sans-serif;
+  --f-text:"Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"Geist Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --gutter:max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-text);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+::selection{background:var(--lime);color:var(--lime-ink)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+.wrap{max-width:1320px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+@media (min-width:768px){.wrap{padding-left:max(40px, env(safe-area-inset-left, 0px));padding-right:max(40px, env(safe-area-inset-right, 0px))}}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--fg-2)}
+.mono b{color:var(--fg);font-weight:500}
+h1,h2,h3{font-family:var(--f-display);font-weight:800;font-stretch:125%;line-height:.92;letter-spacing:-.02em;margin:0;text-wrap:balance}
+p{margin:0}
+.muted{color:var(--fg-2)}
+
+/* Doc header */
+.doc-head{border-bottom:1px solid var(--line);padding-block:20px}
+.doc-head .wrap{display:flex;flex-wrap:wrap;gap:8px 32px;justify-content:space-between}
+
+/* Section frame */
+section.block{border-bottom:1px solid var(--line);padding-block:72px}
+.sec-head{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:40px}
+@media (min-width:900px){.sec-head{grid-template-columns:3fr 9fr;align-items:end}}
+.sec-head h2{font-size:clamp(32px,5vw,56px)}
+.sec-head .lede{max-width:62ch;color:var(--fg-2);font-size:17px}
+
+/* Intro */
+.intro{padding-block:72px 56px;border-bottom:1px solid var(--line)}
+.intro h1{font-size:clamp(40px,8.4vw,120px)}
+.intro .row{display:grid;gap:32px;margin-top:40px}
+@media (min-width:900px){.intro .row{grid-template-columns:repeat(3,1fr)}}
+.intro .row p{color:var(--fg-2);max-width:44ch}
+.intro .row .mono{display:block;margin-bottom:10px}
+
+/* Hero mock — this is the proposed real first viewport */
+.frame{border:1px solid var(--line);background:var(--bg);position:relative;overflow:hidden}
+.frame-bar{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--bg-2)}
+.mock-nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px clamp(16px,3vw,36px);border-bottom:1px solid var(--line)}
+.mock-nav .id{font-family:var(--f-display);font-stretch:125%;font-weight:800;font-size:15px;letter-spacing:.02em}
+.mock-nav ul{display:none;list-style:none;margin:0;padding:0;gap:28px}
+.mock-nav li{font-size:14px;color:var(--fg-2)}
+.mock-nav li.on{color:var(--fg)}
+.mock-nav li.on::before{content:"";display:inline-block;width:6px;height:6px;background:var(--lime);margin-right:8px;vertical-align:middle}
+.mock-nav .burger{font-family:var(--f-mono);font-size:12px;border:1px solid var(--line);padding:6px 10px}
+@media (min-width:860px){.mock-nav ul{display:flex}.mock-nav .burger{display:none}}
+
+.hero{padding:clamp(28px,5vw,64px) clamp(16px,3vw,36px) 0}
+.hero-top{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between;margin-bottom:clamp(24px,4vw,48px)}
+.avail{display:inline-flex;align-items:center;gap:10px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(185,253,14,.12)}
+.name{font-size:clamp(46px,12.6vw,188px);line-height:.84;letter-spacing:-.035em;text-transform:uppercase}
+.name span{display:block}
+.name .two{padding-left:clamp(0px,14vw,240px)}
+.hero-grid{display:grid;gap:28px;margin-top:clamp(28px,4vw,52px);padding-bottom:clamp(28px,4vw,52px)}
+@media (min-width:900px){.hero-grid{grid-template-columns:4fr 5fr 3fr;align-items:end}}
+.role{font-family:var(--f-mono);font-size:13px;letter-spacing:.02em;color:var(--fg)}
+.role em{font-style:normal;color:var(--fg-2)}
+.claim{font-family:var(--f-display);font-stretch:100%;font-weight:600;font-size:clamp(24px,2.6vw,36px);line-height:1.08;letter-spacing:-.015em;max-width:18ch}
+.desc{color:var(--fg-2);max-width:46ch;margin-top:14px}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-text);font-weight:500;font-size:15px;padding:13px 18px;text-decoration:none;border:1px solid var(--fg);color:var(--fg)}
+.btn.primary{background:var(--fg);color:var(--bg)}
+.btn.primary:hover{background:var(--lime);border-color:var(--lime)}
+.btn.ghost:hover{border-color:var(--lime)}
+.socials{display:flex;flex-direction:column;gap:8px}
+.socials a{display:flex;justify-content:space-between;gap:16px;font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.04em;text-decoration:none;color:var(--fg-2);border-top:1px solid var(--line);padding-top:8px}
+.socials a:hover{color:var(--fg)}
+.ficha-strip{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line)}
+@media (min-width:900px){.ficha-strip{grid-template-columns:repeat(4,1fr)}}
+.ficha-strip div{padding:14px clamp(16px,3vw,36px);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ficha-strip .mono{display:block;font-size:11px;color:var(--fg-3);margin-bottom:4px}
+.ficha-strip span.v{font-family:var(--f-mono);font-size:13px}
+.note{margin-top:14px;font-size:14px;color:var(--fg-3)}
+
+/* Palette */
+.palette{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (min-width:900px){.palette{grid-template-columns:repeat(5,1fr)}}
+.sw{background:var(--bg);display:flex;flex-direction:column}
+.sw .chip{height:120px}
+.sw .meta{padding:14px;display:flex;flex-direction:column;gap:4px}
+.sw .meta strong{font-weight:500}
+.sw .meta small{color:var(--fg-2);font-size:13px;line-height:1.4}
+.rules{display:grid;gap:24px;margin-top:32px}
+@media (min-width:900px){.rules{grid-template-columns:repeat(3,1fr)}}
+.rules h3{font-family:var(--f-mono);font-stretch:100%;font-weight:500;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-2);margin-bottom:10px;line-height:1.4}
+.rules ul{margin:0;padding-left:18px;color:var(--fg-2);display:grid;gap:6px}
+.rules li::marker{color:var(--fg-3)}
+
+/* Type */
+.type-grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.spec{background:var(--bg);padding:28px;display:grid;gap:20px}
+@media (min-width:900px){.spec{grid-template-columns:3fr 9fr;align-items:center}}
+.spec .sample-d{font-family:var(--f-display);font-weight:800;font-stretch:125%;font-size:clamp(36px,6vw,84px);line-height:.9;letter-spacing:-.03em;text-transform:uppercase}
+.spec .sample-t{font-family:var(--f-text);font-size:clamp(18px,1.8vw,22px);line-height:1.5;max-width:52ch}
+.spec .sample-m{font-family:var(--f-mono);font-size:14px;display:grid;gap:6px}
+.spec .sample-m span{color:var(--fg-2)}
+.spec .why{color:var(--fg-2);font-size:14px;margin-top:8px}
+
+/* Page map */
+.map{display:grid;gap:0;border-top:1px solid var(--line)}
+.map-row{display:grid;grid-template-columns:56px 1fr;gap:12px 20px;padding:22px 0;border-bottom:1px solid var(--line)}
+@media (min-width:900px){.map-row{grid-template-columns:72px 3fr 6fr 3fr}}
+.map-row .n{font-family:var(--f-mono);color:var(--fg-3);font-size:13px;padding-top:4px}
+.map-row h3{font-size:clamp(22px,2.4vw,30px);font-stretch:112%}
+.map-row p{color:var(--fg-2);grid-column:2}
+.map-row .tag{grid-column:2}
+@media (min-width:900px){.map-row p,.map-row .tag{grid-column:auto}}
+.tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--fg-2);display:flex;flex-wrap:wrap;gap:6px;align-content:start}
+.tag i{font-style:normal;border:1px solid var(--line);padding:3px 7px}
+.tag i.c{border-color:var(--lime);color:var(--lime)}
+
+/* Projects composition */
+.comp{display:grid;gap:20px}
+.plate{background:var(--bg-2);border:1px solid var(--line);position:relative;display:flex;align-items:flex-end;min-height:180px;overflow:hidden}
+.plate .shot{position:absolute;inset:14px 14px 64px 14px;border:1px dashed var(--line);display:grid;place-items:center;color:var(--fg-3);font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;text-align:center;padding:8px}
+.plate .cap{position:relative;width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;padding:14px;border-top:1px solid var(--line);background:var(--bg-2)}
+.plate .cap strong{font-family:var(--f-display);font-stretch:112%;font-weight:700;font-size:18px}
+.c-row{display:grid;gap:20px}
+@media (min-width:900px){
+  .p1{min-height:420px}
+  .c-row.pair{grid-template-columns:7fr 5fr}
+  .c-row.pair .plate:last-child{margin-top:80px}
+  .c-row.off{grid-template-columns:2fr 10fr}
+  .p3{min-height:340px}
+}
+.p2a,.p2b{min-height:300px}
+.taller{border:1px solid var(--line);display:grid}
+@media (min-width:900px){.taller{grid-template-columns:3fr 9fr}}
+.taller .lab{padding:20px;border-bottom:1px solid var(--line)}
+@media (min-width:900px){.taller .lab{border-bottom:0;border-right:1px solid var(--line)}}
+.taller .lab h3{font-size:28px;margin-top:8px}
+.taller .items{display:grid}
+.taller .it{display:grid;grid-template-columns:1fr;gap:6px 24px;padding:20px;border-bottom:1px solid var(--line)}
+.taller .it:last-child{border-bottom:0}
+@media (min-width:700px){.taller .it{grid-template-columns:4fr 6fr 2fr;align-items:baseline}}
+.taller .it strong{font-family:var(--f-display);font-stretch:112%;font-size:22px}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.status::before{content:"";width:7px;height:7px;border:1px solid var(--fg-2);border-radius:50%}
+.status.live::before{background:var(--fg);border-color:var(--fg)}
+.status.wip::before{background:transparent;border-color:var(--lime)}
+
+/* Index (signature) */
+.index{border-top:1px solid var(--fg)}
+.ix{display:grid;grid-template-columns:40px 1fr auto;gap:8px 16px;align-items:baseline;padding:16px 4px;border-bottom:1px solid var(--line);text-decoration:none;position:relative;transition:padding .25s ease, background .25s ease}
+@media (min-width:900px){.ix{grid-template-columns:56px 5fr 4fr 2fr}}
+.ix .no{font-family:var(--f-mono);font-size:12px;color:var(--fg-3)}
+.ix .nm{font-family:var(--f-display);font-weight:700;font-stretch:118%;font-size:clamp(20px,3vw,38px);letter-spacing:-.02em;line-height:1}
+.ix .ct{display:none;color:var(--fg-2);font-size:14px}
+@media (min-width:900px){.ix .ct{display:block}}
+.ix:hover,.ix:focus-visible{background:var(--bg-2);padding-left:16px}
+.ix:hover .no,.ix:focus-visible .no{color:var(--lime)}
+.ix-wrap{display:grid;gap:24px}
+@media (min-width:1000px){.ix-wrap{grid-template-columns:8fr 4fr}}
+.preview{display:none;position:sticky;top:20px;align-self:start;aspect-ratio:4/5;background:var(--bg-2);border:1px solid var(--line);padding:14px}
+@media (min-width:1000px){.preview{display:flex;flex-direction:column;gap:12px}}
+.preview .shot{flex:1;border:1px dashed var(--line);display:grid;place-items:center;font-family:var(--f-mono);font-size:11px;color:var(--fg-3);text-transform:uppercase;letter-spacing:.06em;text-align:center;padding:10px}
+@media (prefers-reduced-motion:reduce){.ix{transition:none}}
+
+/* Detail page schematic */
+.detail{display:grid;gap:20px}
+@media (min-width:900px){.detail{grid-template-columns:4fr 8fr}}
+.d-ficha{border:1px solid var(--line);align-self:start}
+.d-ficha div{display:flex;justify-content:space-between;gap:16px;padding:12px 16px;border-bottom:1px solid var(--line);font-size:14px}
+.d-ficha div:last-child{border-bottom:0}
+.d-ficha div span:first-child{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-3);padding-top:2px}
+.d-body{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.d-body > div{background:var(--bg);padding:18px 20px;display:grid;gap:4px}
+@media (min-width:700px){.d-body > div{grid-template-columns:3fr 9fr}}
+.d-body strong{font-family:var(--f-mono);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.d-body p{color:var(--fg-2);font-size:15px}
+
+/* Components + tree */
+.two-col{display:grid;gap:32px}
+@media (min-width:900px){.two-col{grid-template-columns:5fr 7fr}}
+.comp-list{display:grid;gap:0;border-top:1px solid var(--line)}
+.comp-list div{display:grid;grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px solid var(--line)}
+@media (min-width:600px){.comp-list div{grid-template-columns:200px 1fr 70px;gap:16px}}
+.comp-list code{font-family:var(--f-mono);font-size:13px;color:var(--fg)}
+.comp-list span{color:var(--fg-2);font-size:14px}
+.comp-list em{font-style:normal;font-family:var(--f-mono);font-size:11px;text-transform:uppercase;color:var(--fg-3)}
+.comp-list em.cl{color:var(--lime)}
+pre.tree{margin:0;background:var(--bg-2);border:1px solid var(--line);padding:22px;overflow-x:auto;font-family:var(--f-mono);font-size:13px;line-height:1.65;color:var(--fg-2)}
+pre.tree b{color:var(--fg);font-weight:500}
+pre.tree i{font-style:normal;color:var(--fg-3)}
+
+/* Missing info */
+.missing{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (min-width:900px){.missing{grid-template-columns:repeat(2,1fr)}}
+.missing div{background:var(--bg);padding:20px;display:grid;gap:8px}
+.missing h3{font-family:var(--f-text);font-stretch:100%;font-weight:600;font-size:17px;letter-spacing:0;line-height:1.3}
+.missing p{color:var(--fg-2);font-size:15px}
+.missing .pri{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--fg-3)}
+.missing .pri.hi{color:var(--lime)}
+
+/* Decisions */
+.decide{display:grid;gap:12px;counter-reset:d}
+.decide li{list-style:none;display:grid;grid-template-columns:36px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.decide li::before{counter-increment:d;content:counter(d,decimal-leading-zero);font-family:var(--f-mono);font-size:12px;color:var(--fg-3);padding-top:3px}
+.decide{padding:0;margin:0}
+.decide strong{font-weight:600}
+.decide p{color:var(--fg-2);margin-top:4px}
+.opts{display:grid;gap:8px;margin-top:10px}
+.opts span{font-family:var(--f-display);font-stretch:100%;font-weight:600;font-size:19px;border-left:2px solid var(--line);padding-left:12px}
+.opts span.rec{border-left-color:var(--lime)}
+footer.doc-foot{padding-block:40px}
+</style>
+
+<header class="doc-head">
+  <div class="wrap">
+    <span class="mono"><b>Fase 1</b> · Discovery y dirección de arte</span>
+    <span class="mono">ezequielbrandan.com.ar · Propuesta para aprobar</span>
+  </div>
+</header>
+
+<main>
+<section class="intro">
+  <div class="wrap">
+    <p class="mono" style="margin-bottom:20px">Concepto</p>
+    <h1>Dossier de obra.</h1>
+    <div class="row">
+      <div>
+        <span class="mono">La idea</span>
+        <p>El portfolio se presenta como lo haría un estudio de arquitectura: cada proyecto es una obra, con su lámina (imagen amplia) y su ficha técnica (estado, rol, stack, enlace). La prueba de seniority es el criterio con el que se documenta cada proyecto, no los adjetivos.</p>
+      </div>
+      <div>
+        <span class="mono">Lo que evita</span>
+        <p>Hero partido en dos con avatar, grilla de seis tarjetas iguales, barras de nivel, glow neón y gradientes. El verde lima aparece como tinta de señal: disponibilidad, foco, estado activo. Nunca como brillo.</p>
+      </div>
+      <div>
+        <span class="mono">Lo que se recuerda</span>
+        <p>El nombre compuesto a escala de cartel en una grotesca ancha, la ficha con coordenadas de Santiago del Estero y el índice de obra, donde cada fila revela la lámina del proyecto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono">01 · Primer viewport</p>
+      <div>
+        <h2>Hero</h2>
+        <p class="lede" style="margin-top:14px">Así se vería la apertura real. Es HTML vivo: probá el ancho de la ventana para ver cómo se recompone en mobile.</p>
+      </div>
+    </div>
+
+    <div class="frame" aria-label="Maqueta del hero">
+      <div class="frame-bar"><span class="mono">ezequielbrandan.com.ar</span><span class="mono">1440 → 360</span></div>
+      <nav class="mock-nav" aria-label="Maqueta de navegación">
+        <span class="id">E·BRANDAN</span>
+        <ul>
+          <li class="on">Inicio</li><li>Sobre mí</li><li>Experiencia</li><li>Proyectos</li><li>Contacto</li>
+        </ul>
+        <span class="burger">Menú</span>
+      </nav>
+      <div class="hero">
+        <div class="hero-top">
+          <span class="avail mono"><span class="dot" aria-hidden="true"></span><b>Disponible para proyectos freelance</b></span>
+          <span class="mono">27°47′S 64°16′O · Santiago del Estero, AR</span>
+        </div>
+        <h2 class="name"><span>Ezequiel</span><span class="two">Brandan</span></h2>
+        <div class="hero-grid">
+          <p class="role">Senior Frontend Engineer<br><em>React · Next.js · TypeScript</em></p>
+          <div>
+            <p class="claim">Frontend con criterio de arquitectura.</p>
+            <p class="desc">Desarrollo interfaces con React y Next.js para proyectos empresariales en una consultora tecnológica, y construyo productos digitales propios que hoy están en producción.</p>
+            <div class="ctas">
+              <a class="btn primary" href="#proyectos-comp">Ver proyectos →</a>
+              <a class="btn ghost" href="#faltante">Contactar</a>
+            </div>
+          </div>
+          <div class="socials">
+            <a href="#faltante">GitHub <span>↗</span></a>
+            <a href="https://www.linkedin.com/in/ezequiel-brandan-64944962/" target="_blank" rel="noopener">LinkedIn <span>↗</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="ficha-strip">
+        <div><span class="mono">Foco</span><span class="v">Frontend · Producto</span></div>
+        <div><span class="mono">Stack base</span><span class="v">React / Next / TS</span></div>
+        <div><span class="mono">En producción</span><span class="v">4 proyectos propios</span></div>
+        <div><span class="mono">Actualmente</span><span class="v">Consultoría · Seguros</span></div>
+      </div>
+    </div>
+    <p class="note">La ficha inferior usa solo hechos confirmados (4 proyectos publicados, trabajo actual en consultoría). Ningún número de años, clientes ni métricas.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono">02 · Sistema visual</p>
+      <div>
+        <h2>Paleta</h2>
+        <p class="lede" style="margin-top:14px">La paleta del brief, con dos tonos de soporte para líneas y texto terciario. Un solo tema oscuro, deliberado.</p>
+      </div>
+    </div>
+    <div class="palette">
+      <div class="sw"><div class="chip" style="background:#101110;border-bottom:1px solid var(--line)"></div><div class="meta"><strong>Fondo</strong><span class="mono">#101110</span><small>Base de toda la página.</small></div></div>
+      <div class="sw"><div class="chip" style="background:#191B19"></div><div class="meta"><strong>Lámina</strong><span class="mono">#191B19</span><small>Planos de proyecto, fichas, menú mobile.</small></div></div>
+      <div class="sw"><div class="chip" style="background:#F4F4F0"></div><div class="meta"><strong>Texto</strong><span class="mono">#F4F4F0</span><small>Títulos, cuerpo y botón primario.</small></div></div>
+      <div class="sw"><div class="chip" style="background:#A0A39D"></div><div class="meta"><strong>Texto 2</strong><span class="mono">#A0A39D</span><small>Descripciones, metadatos. Contraste 7.6:1.</small></div></div>
+      <div class="sw"><div class="chip" style="background:#B9FD0E"></div><div class="meta"><strong>Señal</strong><span class="mono">#B9FD0E</span><small>Disponibilidad, foco, estado activo, selección.</small></div></div>
+    </div>
+    <div class="rules">
+      <div><h3>Dónde aparece el lima</h3><ul><li>Punto de disponibilidad</li><li>Anillo de foco de teclado</li><li>Ítem activo del menú y número de fila del índice</li><li>Hover del botón primario y selección de texto</li></ul></div>
+      <div><h3>Materiales</h3><ul><li>Líneas de 1px #2B2E2A como estructura</li><li>Esquinas rectas, sin sombras ni blur</li><li>Imágenes en lámina con su ficha debajo</li></ul></div>
+      <div><h3>Movimiento</h3><ul><li>Entrada del nombre por líneas, una sola vez</li><li>Revelado sobrio de secciones (opacidad + 12px)</li><li>Todo desactivado con reduced-motion</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono">03 · Tipografía</p>
+      <div>
+        <h2>Tres voces</h2>
+        <p class="lede" style="margin-top:14px">Todas gratuitas, servidas desde el propio sitio con next/font (sin pedidos a terceros en producción).</p>
+      </div>
+    </div>
+    <div class="type-grid">
+      <div class="spec">
+        <div><span class="mono"><b>Display</b> · Archivo</span><p class="why">Ancho 125, peso 800. Grotesca ancha con presencia de cartel técnico. Solo para nombre, títulos de sección y nombres de proyecto.</p></div>
+        <div class="sample-d">La Nueva Tele</div>
+      </div>
+      <div class="spec">
+        <div><span class="mono"><b>Texto</b> · Geist</span><p class="why">Neutra, muy legible, nacida en el ecosistema de Next.js y Vercel. Cuerpo, botones, navegación.</p></div>
+        <p class="sample-t">Plataforma para eventos que permite compartir fotografías mediante códigos QR y verlas en pantallas mientras el evento ocurre.</p>
+      </div>
+      <div class="spec">
+        <div><span class="mono"><b>Técnica</b> · Geist Mono</span><p class="why">Fichas, estados, etiquetas y metadatos. Mayúsculas con tracking leve.</p></div>
+        <div class="sample-m"><div><span>Estado</span> — En desarrollo</div><div><span>Stack</span> — Next.js · TypeScript · Supabase</div><div><span>URL</span> — muchofulbo.com ↗</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono">04 · Estructura</p>
+      <div>
+        <h2>Mapa de páginas</h2>
+        <p class="lede" style="margin-top:14px">Home en un solo recorrido con anclas, más una página por proyecto. El orden lleva al visitante de quién sos a qué hiciste y a cómo contactarte.</p>
+      </div>
+    </div>
+    <div class="map">
+      <div class="map-row"><span class="n">/</span><h3>Navbar</h3><p>Identidad «E·BRANDAN», cinco anclas con indicador de sección activa y menú mobile a pantalla completa con foco atrapado y cierre con Esc.</p><div class="tag"><i class="c">client</i><i>sticky</i></div></div>
+      <div class="map-row"><span class="n">#inicio</span><h3>Hero</h3><p>Nombre a escala de cartel, rol, frase, descripción, dos CTAs, GitHub, LinkedIn, disponibilidad y la ficha con coordenadas.</p><div class="tag"><i>server</i><i>LCP = texto</i></div></div>
+      <div class="map-row"><span class="n">#sobre-mi</span><h3>Sobre mí</h3><p>Texto corto en primera persona, a dos columnas: lo empresarial (equipo, procesos, APIs) y lo independiente (producto, deploy, SEO). Cierra con «cómo trabajo» en tres líneas.</p><div class="tag"><i>server</i></div></div>
+      <div class="map-row"><span class="n">#experiencia</span><h3>Experiencia</h3><p>Línea temporal vertical en formato ficha: período, empresa, rol, proyecto destacado y responsabilidades. La experiencia actual abre la lista; las anteriores se suman desde el archivo de datos.</p><div class="tag"><i>server</i><i>data</i></div></div>
+      <div class="map-row"><span class="n">#proyectos</span><h3>Obra</h3><p>Índice de obra (firma interactiva) seguido de láminas con composiciones distintas por proyecto y un bloque «En el taller» para lo que está en desarrollo.</p><div class="tag"><i class="c">client: índice</i><i>data</i></div></div>
+      <div class="map-row"><span class="n">#stack</span><h3>Stack</h3><p>Tabla de cinco columnas (Frontend, Backend, Database, Infrastructure, Tools). Sin porcentajes ni barras.</p><div class="tag"><i>server</i><i>data</i></div></div>
+      <div class="map-row"><span class="n">#contacto</span><h3>Contacto</h3><p>Cierre a escala grande: «Hablemos.», el email como enlace mailto con botón copiar, LinkedIn, GitHub y ubicación.</p><div class="tag"><i class="c">client: copiar</i></div></div>
+      <div class="map-row"><span class="n">/proyectos/[slug]</span><h3>Proyecto</h3><p>Lámina principal, ficha técnica fija a la izquierda y desarrollo a la derecha. Navegación a la obra anterior y siguiente. Campos vacíos no se renderizan.</p><div class="tag"><i>SSG</i><i>generateStaticParams</i></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="proyectos-comp">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono">05 · Proyectos</p>
+      <div>
+        <h2>Índice y láminas</h2>
+        <p class="lede" style="margin-top:14px">Primero el índice: pasá el mouse o navegá con Tab por las filas. En desktop la lámina del proyecto aparece en el marco de la derecha; en mobile cada fila muestra su miniatura.</p>
+      </div>
+    </div>
+
+    <div class="ix-wrap">
+      <nav class="index" aria-label="Maqueta del índice de obra">
+        <a class="ix" href="#proyectos-comp" data-p="La Nueva Tele · portal de noticias"><span class="no">01</span><span class="nm">La Nueva Tele</span><span class="ct">Medio digital</span><span class="status live">Online</span></a>
+        <a class="ix" href="#proyectos-comp" data-p="Radios Argentinas en Vivo · directorio"><span class="no">02</span><span class="nm">Radios Argentinas</span><span class="ct">Directorio · AR</span><span class="status live">Online</span></a>
+        <a class="ix" href="#proyectos-comp" data-p="Radios Colombianas · directorio"><span class="no">03</span><span class="nm">Radios Colombianas</span><span class="ct">Directorio · CO</span><span class="status live">Online</span></a>
+        <a class="ix" href="#proyectos-comp" data-p="MuchoFulbo · contenidos de fútbol"><span class="no">04</span><span class="nm">MuchoFulbo</span><span class="ct">Contenidos</span><span class="status live">Online</span></a>
+        <a class="ix" href="#proyectos-comp" data-p="EventoDe · sin capturas todavía"><span class="no">05</span><span class="nm">EventoDe</span><span class="ct">Plataforma de eventos</span><span class="status wip">En desarrollo</span></a>
+        <a class="ix" href="#proyectos-comp" data-p="PomoMood · sin capturas todavía"><span class="no">06</span><span class="nm">PomoMood</span><span class="ct">Productividad</span><span class="status wip">Experimental</span></a>
+      </nav>
+      <aside class="preview" aria-hidden="true">
+        <span class="mono">Lámina</span>
+        <div class="shot" id="pv">Captura del sitio en vivo</div>
+        <span class="mono" id="pv-cap">Pasá el mouse por el índice</span>
+      </aside>
+    </div>
+
+    <p class="mono" style="margin:56px 0 20px">Debajo del índice · composición de láminas</p>
+    <div class="comp">
+      <div class="plate p1"><div class="shot">Lámina ancha · captura desktop de La Nueva Tele</div><div class="cap"><strong>La Nueva Tele</strong><span class="mono">Portal de noticias · Online</span></div></div>
+      <div class="c-row pair">
+        <div class="plate p2a"><div class="shot">Radios Argentinas · desktop</div><div class="cap"><strong>Radios Argentinas en Vivo</strong><span class="mono">Directorio · AR</span></div></div>
+        <div class="plate p2b"><div class="shot">Radios Colombianas · mobile</div><div class="cap"><strong>Radios Colombianas</strong><span class="mono">Directorio · CO</span></div></div>
+      </div>
+      <div class="c-row off">
+        <div class="mono" style="padding-top:8px">Una familia de producto en dos mercados se muestra como par.</div>
+        <div class="plate p3"><div class="shot">MuchoFulbo · composición desktop + mobile superpuestos</div><div class="cap"><strong>MuchoFulbo</strong><span class="mono">Contenidos de fútbol · Online</span></div></div>
+      </div>
+      <div class="taller">
+        <div class="lab"><span class="mono">En el taller</span><h3>En desarrollo</h3></div>
+        <div class="items">
+          <div class="it"><strong>EventoDe</strong><span class="muted">Fotos compartidas por QR y proyectadas en pantallas durante el evento.</span><span class="status wip">En desarrollo</span></div>
+          <div class="it"><strong>PomoMood</strong><span class="muted">Pomodoro con ejercicios de respiración.</span><span class="status wip">Experimental</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="note">Lo que está en desarrollo no compite con lo publicado: vive en «En el taller», sin capturas inventadas, con su estado a la vista.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono">06 · /proyectos/[slug]</p>
+      <div>
+        <h2>Página de obra</h2>
+        <p class="lede" style="margin-top:14px">Debajo de la lámina principal, ficha fija a la izquierda y relato a la derecha. Si un campo está vacío, su bloque no existe.</p>
+      </div>
+    </div>
+    <div class="detail">
+      <div class="d-ficha">
+        <div><span>Estado</span><span class="status live">Online</span></div>
+        <div><span>Categoría</span><span>Directorio</span></div>
+        <div><span>Rol</span><span class="muted">[completar]</span></div>
+        <div><span>Stack</span><span class="muted">[completar]</span></div>
+        <div><span>Sitio</span><span>radiosargentinasenvivo.com.ar ↗</span></div>
+        <div><span>Código</span><span class="muted">opcional</span></div>
+      </div>
+      <div class="d-body">
+        <div><strong>Contexto</strong><p>Descripción completa del proyecto.</p></div>
+        <div><strong>Problema</strong><p>Qué resuelve y para quién.</p></div>
+        <div><strong>Solución</strong><p>Cómo lo resolviste.</p></div>
+        <div><strong>Mi participación</strong><p>Qué hiciste vos.</p></div>
+        <div><strong>Decisiones</strong><p>Lista de decisiones técnicas con su porqué.</p></div>
+        <div><strong>Aprendizajes</strong><p>Lo que harías distinto.</p></div>
+        <div><strong>Galería</strong><p>Capturas desktop y mobile.</p></div>
+        <div><strong>Siguiente</strong><p>Obra anterior · Obra siguiente, a escala display.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono">07 · Arquitectura</p>
+      <div>
+        <h2>Componentes y carpetas</h2>
+        <p class="lede" style="margin-top:14px">Server Components por defecto. Solo cuatro piezas necesitan cliente. El contenido vive en TypeScript tipado, separado de la UI.</p>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="comp-list">
+        <div><code>Navbar</code><span>Anclas + sección activa</span><em class="cl">client</em></div>
+        <div><code>MobileMenu</code><span>Diálogo accesible</span><em class="cl">client</em></div>
+        <div><code>ProjectIndex</code><span>Índice con lámina en hover</span><em class="cl">client</em></div>
+        <div><code>CopyEmail</code><span>Copiar al portapapeles</span><em class="cl">client</em></div>
+        <div><code>Reveal</code><span>Wrapper de Motion, respeta reduced-motion</span><em class="cl">client</em></div>
+        <div><code>Container</code><span>Ancho máximo y márgenes</span><em>server</em></div>
+        <div><code>SectionHeader</code><span>Etiqueta mono + título display</span><em>server</em></div>
+        <div><code>Button</code><span>Primario / secundario, enlace o botón</span><em>server</em></div>
+        <div><code>StatusBadge</code><span>Online · En desarrollo · Experimental</span><em>server</em></div>
+        <div><code>Availability</code><span>Lee site.config, punto lima</span><em>server</em></div>
+        <div><code>ProjectPlate</code><span>Lámina con variante wide / pair / offset</span><em>server</em></div>
+        <div><code>FactSheet</code><span>Ficha técnica clave/valor</span><em>server</em></div>
+        <div><code>JsonLd</code><span>Person + WebSite</span><em>server</em></div>
+      </div>
+      <pre class="tree"><b>src/</b>
+├─ <b>app/</b>
+│  ├─ layout.tsx          <i>fuentes, metadata base, JSON-LD</i>
+│  ├─ page.tsx            <i>home: compone secciones</i>
+│  ├─ proyectos/[slug]/page.tsx
+│  ├─ not-found.tsx
+│  ├─ sitemap.ts · robots.ts
+│  ├─ opengraph-image.tsx <i>OG generada en build</i>
+│  └─ globals.css         <i>tokens Tailwind v4 (@theme)</i>
+├─ <b>sections/</b>           <i>Hero, About, Experience, Projects, Stack, Contact</i>
+├─ <b>components/</b>
+│  ├─ ui/                 <i>Button, Container, StatusBadge…</i>
+│  ├─ layout/             <i>Navbar, MobileMenu, Footer</i>
+│  └─ projects/           <i>ProjectIndex, ProjectPlate, FactSheet</i>
+├─ <b>content/</b>
+│  └─ es/                 <i>projects.ts, experience.ts, stack.ts, copy.ts</i>
+├─ <b>config/</b>
+│  └─ site.ts             <i>nombre, dominio, email, redes, disponibilidad</i>
+├─ <b>types/</b>              <i>Project, Experience, StackGroup</i>
+└─ <b>lib/</b>                <i>content.ts (getProjects(locale)), seo.ts, cn.ts</i>
+<b>public/</b>projects/&lt;slug&gt;/   <i>cover.webp, gallery-*.webp</i></pre>
+    </div>
+    <p class="note">Inglés a futuro: el contenido ya vive en <code>content/es</code> y se lee con <code>getProjects(locale)</code>. Sumar inglés será crear <code>content/en</code> y una ruta <code>/en</code>, sin tocar componentes.</p>
+  </div>
+</section>
+
+<section class="block" id="faltante">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono">08 · Pendiente</p>
+      <div>
+        <h2>Información faltante</h2>
+        <p class="lede" style="margin-top:14px">Todo lo que no está confirmado entra como placeholder visible y editable. Nada de esto bloquea la implementación.</p>
+      </div>
+    </div>
+    <div class="missing">
+      <div><span class="pri hi">Alta</span><h3>Experiencia laboral</h3><p>Empresa, puesto y fechas. El enlace de LinkedIn exige iniciar sesión, así que no pude leerlo.</p></div>
+      <div><span class="pri hi">Alta</span><h3>Email de contacto</h3><p>Se configura en <code>config/site.ts</code>.</p></div>
+      <div><span class="pri hi">Alta</span><h3>URL de GitHub</h3><p>LinkedIn ya está: /in/ezequiel-brandan-64944962.</p></div>
+      <div><span class="pri">Media</span><h3>Ficha de cada proyecto</h3><p>Tu rol, stack usado, problema, decisiones técnicas, aprendizajes y repositorio, para los seis proyectos.</p></div>
+      <div><span class="pri">Media</span><h3>Texto de «Sobre mí»</h3><p>Puedo redactar un borrador con lo confirmado y lo ajustás vos.</p></div>
+      <div><span class="pri">Baja</span><h3>Material de EventoDe y PomoMood</h3><p>Capturas o mockups cuando existan. Mientras tanto, sin imagen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono">09 · Para aprobar</p>
+      <div><h2>Decisiones</h2></div>
+    </div>
+    <ol class="decide">
+      <li><div><strong>Concepto «Dossier de obra»</strong><p>Láminas + fichas técnicas, índice de obra como interacción firma, «En el taller» para lo no terminado.</p></div></li>
+      <li><div><strong>Frase del Hero</strong><p>La recomendada está marcada. Podés proponer otra.</p>
+        <div class="opts"><span class="rec">Frontend con criterio de arquitectura.</span><span>Interfaces sólidas para productos que tienen que funcionar.</span><span>Del componente al deploy.</span></div></div></li>
+      <li><div><strong>Tipografías</strong><p>Archivo ancha para display, Geist para texto, Geist Mono para fichas.</p></div></li>
+      <li><div><strong>Arquitectura</strong><p>Next.js App Router, Tailwind v4, Motion, Lucide. Contenido en <code>content/es</code>, configuración en <code>config/site.ts</code>, todo estático y apto para Vercel Hobby.</p></div></li>
+    </ol>
+  </div>
+</section>
+</main>
+
+<footer class="doc-foot">
+  <div class="wrap"><span class="mono">Fase 2 empieza cuando apruebes esta propuesta.</span></div>
+</footer>
+
+<script>
+(function(){
+  var pv=document.getElementById('pv'),cap=document.getElementById('pv-cap');
+  if(!pv)return;
+  document.querySelectorAll('.ix').forEach(function(a){
+    function show(){var t=a.getAttribute('data-p').split(' · ');pv.textContent='Captura · '+t[0];cap.textContent=t[1]||'';}
+    a.addEventListener('mouseenter',show);a.addEventListener('focus',show);
+    a.addEventListener('click',function(e){e.preventDefault();show();});
+  });
+})();
+</script>
