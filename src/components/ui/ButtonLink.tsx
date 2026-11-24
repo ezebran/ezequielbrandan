@@ -14,8 +14,8 @@ const base =
   "group inline-flex min-h-12 items-center gap-3 border px-5 py-3 text-[0.95rem] font-medium transition-colors duration-300 ease-out-expo";
 
 const variants = {
-  primary: "border-paper bg-paper text-ink hover:border-signal hover:bg-signal",
-  secondary: "border-line-strong text-paper hover:border-paper",
+  primary: "border-signal bg-signal text-ink hover:border-signal-soft hover:bg-signal-soft",
+  secondary: "border-line-strong text-paper hover:border-signal hover:text-signal",
 } as const;
 
 export function ButtonLink({ href, children, variant = "primary", external, className }: ButtonLinkProps) {

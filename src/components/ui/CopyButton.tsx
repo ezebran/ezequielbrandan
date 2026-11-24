@@ -7,9 +7,10 @@ interface CopyButtonProps {
   value: string;
   label: string;
   copiedLabel: string;
+  className?: string;
 }
 
-export function CopyButton({ value, label, copiedLabel }: CopyButtonProps) {
+export function CopyButton({ value, label, copiedLabel, className }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -31,10 +32,13 @@ export function CopyButton({ value, label, copiedLabel }: CopyButtonProps) {
     <button
       type="button"
       onClick={handleCopy}
-      className="label-mono inline-flex min-h-11 items-center gap-2 border border-line-strong px-4 text-paper transition-colors duration-300 hover:border-paper"
+      className={
+        className ??
+        "label-mono inline-flex min-h-11 items-center gap-2 border border-line-strong px-4 text-paper transition-colors duration-300 hover:border-paper"
+      }
     >
       {copied ? (
-        <Check className="size-4 text-signal" aria-hidden="true" />
+        <Check className="size-4" aria-hidden="true" />
       ) : (
         <Copy className="size-4" aria-hidden="true" />
       )}

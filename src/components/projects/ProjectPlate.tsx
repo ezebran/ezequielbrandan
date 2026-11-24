@@ -41,10 +41,13 @@ export function ProjectPlate({ project, number, variant, className }: ProjectPla
             variant === "half" ? "" : "md:grid-cols-12",
           )}
         >
-          <p className="label-mono text-faint md:col-span-1">{String(number).padStart(2, "0")}</p>
+          <p className="label-mono text-signal md:col-span-1">{String(number).padStart(2, "0")}</p>
           <div className={variant === "half" ? "" : "md:col-span-7"}>
-            <h3 id={titleId} className="font-semiwide text-[clamp(1.5rem,2.6vw,2.25rem)] leading-none font-bold tracking-[-0.02em]">
-              <Link href={href} className="hover:text-signal focus-visible:text-signal">
+            <h3
+              id={titleId}
+              className="font-semiwide text-[clamp(1.5rem,2.6vw,2.25rem)] leading-none font-bold tracking-[-0.02em] text-signal"
+            >
+              <Link href={href} className="transition-colors hover:text-paper focus-visible:text-paper">
                 {project.name}
               </Link>
             </h3>
@@ -60,7 +63,7 @@ export function ProjectPlate({ project, number, variant, className }: ProjectPla
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
               <Link
                 href={href}
-                className="label-mono inline-flex min-h-11 items-center gap-2 text-paper transition-colors hover:text-signal"
+                className="label-mono inline-flex min-h-11 items-center gap-2 border border-signal bg-signal px-3 text-ink transition-colors hover:border-signal-soft hover:bg-signal-soft"
                 aria-label={`${copy.viewProject}: ${project.name}`}
               >
                 {copy.viewProject}

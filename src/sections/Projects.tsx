@@ -87,19 +87,19 @@ export function Projects() {
         </div>
 
         {workshop.length > 0 ? (
-          <Reveal className="mt-24 grid border border-line md:mt-36 lg:grid-cols-12">
-            <div className="border-b border-line p-5 md:p-6 lg:col-span-3 lg:border-r lg:border-b-0">
-              <h3 className="font-semiwide text-[clamp(1.5rem,2.4vw,2rem)] leading-none font-bold tracking-[-0.02em]">
+          <Reveal className="corner-marks mt-24 grid border border-moss-line bg-moss md:mt-36 lg:grid-cols-12">
+            <div className="border-b border-moss-line p-5 md:p-6 lg:col-span-3 lg:border-r lg:border-b-0">
+              <h3 className="font-semiwide text-[clamp(1.5rem,2.4vw,2rem)] leading-none font-bold tracking-[-0.02em] text-signal">
                 {copy.projects.workshopEyebrow}
               </h3>
               <p className="mt-3 text-sm text-muted">Proyectos que todavía no están publicados.</p>
             </div>
             <ul className="lg:col-span-9">
               {workshop.map((project) => (
-                <li key={project.slug} className="border-b border-line last:border-b-0">
+                <li key={project.slug} className="border-b border-moss-line last:border-b-0">
                   <Link
                     href={`/proyectos/${project.slug}`}
-                    className="group grid gap-x-8 gap-y-2 p-5 transition-colors duration-300 hover:bg-plate md:grid-cols-12 md:items-baseline md:p-6"
+                    className="group grid gap-x-8 gap-y-2 p-5 transition-colors duration-300 hover:bg-moss-2 md:grid-cols-12 md:items-baseline md:p-6"
                   >
                     <span className="label-mono text-faint md:col-span-1">{String(numberOf(project)).padStart(2, "0")}</span>
                     <span className="font-semiwide text-[1.5rem] leading-none font-bold tracking-[-0.02em] md:col-span-3">

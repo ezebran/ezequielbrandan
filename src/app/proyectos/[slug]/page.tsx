@@ -60,7 +60,7 @@ function hostname(url: string) {
 function TextBlock({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <Reveal className="grid gap-3 border-t border-line pt-5 md:grid-cols-12 md:gap-8">
-      <h2 className="label-mono text-faint md:col-span-3">{title}</h2>
+      <h2 className="label-mono text-signal md:col-span-3">{title}</h2>
       <div className="max-w-[62ch] text-[1.05rem] text-muted md:col-span-9 [&_li]:flex [&_li]:gap-3">{children}</div>
     </Reveal>
   );
@@ -85,16 +85,16 @@ function NeighborLink({ project, direction, label }: { project: Project; directi
     <Link
       href={`/proyectos/${project.slug}`}
       className={
-        "group flex min-h-40 flex-col justify-between gap-6 bg-ink p-5 transition-colors duration-300 hover:bg-plate md:p-8 " +
+        "group flex min-h-40 flex-col justify-between gap-6 bg-ink p-5 transition-colors duration-300 hover:bg-signal hover:text-ink md:p-8 " +
         (direction === "next" ? "md:items-end md:text-right" : "")
       }
     >
-      <span className="label-mono inline-flex items-center gap-2 text-faint">
+      <span className="label-mono inline-flex items-center gap-2 text-signal group-hover:text-signal-ink">
         {direction === "previous" ? <Icon className="size-3.5" aria-hidden="true" /> : null}
         {label}
         {direction === "next" ? <Icon className="size-3.5" aria-hidden="true" /> : null}
       </span>
-      <span className="font-wide text-[clamp(1.75rem,4vw,3.5rem)] leading-[0.9] font-extrabold tracking-[-0.03em] uppercase transition-colors group-hover:text-signal">
+      <span className="font-wide text-[clamp(1.75rem,4vw,3.5rem)] leading-[0.9] font-extrabold tracking-[-0.03em] uppercase">
         {project.name}
       </span>
     </Link>
@@ -173,8 +173,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           {t.back}
         </Link>
 
-        <header className="mt-8 grid gap-6 border-t border-paper pt-6 md:mt-12 md:grid-cols-12 md:gap-8">
-          <p className="label-mono text-faint md:col-span-1">{String(index + 1).padStart(2, "0")}</p>
+        <header className="mt-8 grid gap-6 border-t border-signal pt-6 md:mt-12 md:grid-cols-12 md:gap-8">
+          <p className="label-mono text-signal md:col-span-1">{String(index + 1).padStart(2, "0")}</p>
           <div className="md:col-span-11">
             <h1 className="font-wide text-[clamp(2.75rem,9vw,8rem)] leading-[0.86] font-extrabold tracking-[-0.04em] uppercase">
               {project.name}
@@ -188,7 +188,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex min-h-12 items-center gap-3 border border-paper bg-paper px-5 py-3 font-medium text-ink transition-colors duration-300 hover:border-signal hover:bg-signal"
+                  className="group inline-flex min-h-12 items-center gap-3 border border-signal bg-signal px-5 py-3 font-medium text-ink transition-colors duration-300 hover:border-signal-soft hover:bg-signal-soft"
                 >
                   {copy.projects.visitSite}
                   <ArrowUpRight className="size-4" aria-hidden="true" />
@@ -207,9 +207,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             sizes="(min-width: 1320px) 1240px, (min-width: 768px) calc(100vw - 80px), calc(100vw - 40px)"
           />
         ) : (
-          <div className="flex aspect-[16/7] flex-col justify-between border border-line bg-plate p-5 md:p-8">
+          <div className="corner-marks flex aspect-[16/7] flex-col justify-between border border-moss-line bg-moss p-5 md:p-8">
             <span className="label-mono text-faint">{copy.projects.noImage}</span>
-            <span aria-hidden="true" className="font-wide text-[clamp(2.5rem,10vw,9rem)] leading-[0.85] font-extrabold tracking-[-0.04em] text-line-strong uppercase">
+            <span aria-hidden="true" className="font-wide text-[clamp(2.5rem,10vw,9rem)] leading-[0.85] font-extrabold tracking-[-0.04em] text-signal uppercase">
               {copy.projects.workshopEyebrow}
             </span>
           </div>

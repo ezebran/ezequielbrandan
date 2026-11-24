@@ -22,8 +22,8 @@ export function About() {
           </Reveal>
           <div className="grid gap-10 sm:grid-cols-2 lg:col-span-4 lg:col-start-9 lg:grid-cols-1">
             {about.columns.map((column, i) => (
-              <Reveal key={column.label} delay={i * 0.08} className="border-t border-line pt-4">
-                <h3 className="label-mono text-faint">{column.label}</h3>
+              <Reveal key={column.label} delay={i * 0.08} className="corner-marks border border-moss-line bg-moss p-5">
+                <h3 className="label-mono text-signal">{column.label}</h3>
                 <p className="mt-3 max-w-[52ch] text-muted">{column.text}</p>
               </Reveal>
             ))}

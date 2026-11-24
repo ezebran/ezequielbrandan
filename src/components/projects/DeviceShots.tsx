@@ -19,8 +19,8 @@ export function DeviceShots({ project, sizes, withMobile = true, priority, class
   const mobile = withMobile ? project.gallery?.find((image) => image.device === "mobile") : undefined;
 
   return (
-    <div className={cn("relative", className)}>
-      <div className="relative aspect-[16/10] overflow-hidden border border-line bg-plate-2">
+    <div className={cn("corner-marks", className)}>
+      <div className="relative aspect-[16/10] overflow-hidden border border-moss-line bg-moss-2">
         <Image
           src={cover.src}
           alt={cover.alt}
@@ -31,7 +31,7 @@ export function DeviceShots({ project, sizes, withMobile = true, priority, class
         />
       </div>
       {mobile ? (
-        <div className="absolute right-[4%] -bottom-[8%] w-[22%] max-w-[220px] min-w-[84px] overflow-hidden border border-line-strong bg-ink p-1 shadow-[0_24px_48px_-12px_rgb(0_0_0/0.6)]">
+        <div className="absolute right-[4%] -bottom-[8%] z-[3] w-[22%] max-w-[220px] min-w-[84px] overflow-hidden border border-signal bg-ink p-1 shadow-[0_24px_48px_-12px_rgb(0_0_0/0.6)]">
           <div className="relative aspect-[390/844] overflow-hidden">
             <Image src={mobile.src} alt={mobile.alt} fill sizes="(min-width: 1024px) 220px, 22vw" className="object-cover object-top" />
           </div>

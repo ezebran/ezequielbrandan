@@ -33,7 +33,7 @@ export function ProjectIndex({ entries, label, noImageLabel }: ProjectIndexProps
   return (
     <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
       <nav aria-label={label} className="lg:col-span-8">
-        <ol className="border-t border-paper">
+        <ol className="border-t border-signal">
           {entries.map((entry) => {
             const isActive = entry.slug === active?.slug;
             return (
@@ -43,23 +43,37 @@ export function ProjectIndex({ entries, label, noImageLabel }: ProjectIndexProps
                   onMouseEnter={() => setActiveSlug(entry.slug)}
                   onFocus={() => setActiveSlug(entry.slug)}
                   className={cn(
-                    "group grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-4 gap-y-1 py-4 transition-[padding,background-color] duration-500 ease-out-expo md:grid-cols-[3.5rem_1fr_12rem_9rem] md:py-5",
-                    isActive && "lg:bg-plate lg:pl-4",
+                    "group grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-4 gap-y-1 py-4 transition-[padding,background-color,color] duration-500 ease-out-expo md:grid-cols-[3.5rem_1fr_12rem_9rem] md:py-5",
+                    isActive && "lg:bg-signal lg:px-4 lg:text-ink",
                   )}
                 >
-                  <span className={cn("label-mono transition-colors", isActive ? "lg:text-signal" : "text-faint")}>
+                  <span
+                    className={cn(
+                      "label-mono transition-colors",
+                      isActive ? "text-faint lg:text-signal-ink" : "text-faint",
+                    )}
+                  >
                     {String(entry.number).padStart(2, "0")}
                   </span>
                   <span className="font-semiwide text-[clamp(1.35rem,3.2vw,2.5rem)] leading-none font-bold tracking-[-0.02em]">
                     {entry.name}
                   </span>
-                  <span className="hidden text-sm text-muted md:block">{entry.category}</span>
-                  <span className="label-mono flex items-center justify-end gap-2 text-muted">
+                  <span className={cn("hidden text-sm md:block", isActive ? "text-muted lg:text-signal-ink" : "text-muted")}>
+                    {entry.category}
+                  </span>
+                  <span
+                    className={cn(
+                      "label-mono flex items-center justify-end gap-2",
+                      isActive ? "text-muted lg:text-signal-ink" : "text-muted",
+                    )}
+                  >
                     <span
                       aria-hidden="true"
                       className={cn(
                         "size-[7px] rounded-full border",
-                        entry.status === "online" ? "border-paper bg-paper" : "border-signal",
+                        entry.status === "online" ? "border-signal bg-signal" : "border-signal",
+                        isActive && "lg:border-ink",
+                        isActive && entry.status === "online" && "lg:bg-ink",
                       )}
                     />
                     <span className="hidden sm:inline">{entry.statusLabel}</span>
@@ -73,8 +87,8 @@ export function ProjectIndex({ entries, label, noImageLabel }: ProjectIndexProps
       </nav>
 
       <aside aria-hidden="true" className="hidden lg:col-span-4 lg:block">
-        <div className="sticky top-24 flex flex-col gap-3 border border-line bg-plate p-3">
-          <div className="relative aspect-[4/5] overflow-hidden bg-plate-2">
+        <div className="corner-marks sticky top-24 flex flex-col gap-3 border border-moss-line bg-moss p-3">
+          <div className="relative aspect-[4/5] overflow-hidden bg-moss-2">
             <AnimatePresence initial={false} mode="popLayout">
               {active ? (
                 <motion.div
@@ -96,7 +110,7 @@ export function ProjectIndex({ entries, label, noImageLabel }: ProjectIndexProps
                   ) : (
                     <div className="flex h-full flex-col justify-between p-5">
                       <span className="label-mono text-faint">{noImageLabel}</span>
-                      <span className="font-wide text-[2.5rem] leading-[0.9] font-extrabold tracking-[-0.03em] text-line-strong uppercase">
+                      <span className="font-wide text-[2.5rem] leading-[0.9] font-extrabold tracking-[-0.03em] text-moss-line uppercase">
                         {active.name}
                       </span>
                     </div>
@@ -108,7 +122,7 @@ export function ProjectIndex({ entries, label, noImageLabel }: ProjectIndexProps
           {active ? (
             <div className="flex items-start justify-between gap-4 px-1 pb-1">
               <p className="text-sm text-muted">{active.shortDescription}</p>
-              <ArrowRight className="mt-1 size-4 shrink-0 text-faint" />
+              <ArrowRight className="mt-1 size-4 shrink-0 text-signal" />
             </div>
           ) : null}
         </div>

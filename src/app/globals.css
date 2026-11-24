@@ -11,6 +11,13 @@
   --color-muted: #a0a39d;
   --color-faint: #878a83;
   --color-signal: #b9fd0e;
+  --color-signal-soft: #d4fe6a;
+  /* Texto secundario sobre fondo lima. */
+  --color-signal-ink: #33440a;
+  /* Superficies oscuras con tinte verde. */
+  --color-moss: #141b12;
+  --color-moss-2: #1b2618;
+  --color-moss-line: #2a3a24;
 
   --font-display: var(--font-archivo), "Arial Narrow", Arial, sans-serif;
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
@@ -47,6 +54,12 @@
   :focus-visible {
     outline: 2px solid var(--color-signal);
     outline-offset: 3px;
+  }
+
+  /* Sobre fondo lima, el foco se dibuja en tinta. */
+  .bg-signal :focus-visible,
+  .bg-signal:focus-visible {
+    outline-color: var(--color-ink);
   }
 
   h1,
@@ -106,6 +119,44 @@
 
   &:hover {
     text-decoration-color: var(--color-signal);
+  }
+}
+
+/* Banda rayada que separa secciones. */
+@utility band-stripes {
+  background-image: repeating-linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--color-signal) 22%, transparent) 0 1px,
+    transparent 1px 9px
+  );
+}
+
+/* Esquinas lima sobre imágenes y paneles. */
+@utility corner-marks {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+    z-index: 2;
+    border-color: var(--color-signal);
+    border-style: solid;
+  }
+
+  &::before {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+  }
+
+  &::after {
+    right: -1px;
+    bottom: -1px;
+    border-width: 0 2px 2px 0;
   }
 }
 

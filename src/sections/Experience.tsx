@@ -26,7 +26,9 @@ export function Experience() {
               <Reveal
                 className={cn(
                   "grid gap-x-8 gap-y-4 md:grid-cols-12",
-                  item.current ? "py-10 md:py-14" : "py-7 md:py-9",
+                  item.current
+                    ? "corner-marks -mx-4 bg-moss px-4 py-10 md:-mx-6 md:px-6 md:py-14"
+                    : "py-7 md:py-9",
                 )}
               >
                 <div className="flex items-start gap-3 md:col-span-3">
@@ -38,7 +40,7 @@ export function Experience() {
                     )}
                   />
                   <div>
-                    <p className={cn("label-mono", item.current ? "text-paper" : "text-muted")}>{item.period}</p>
+                    <p className={cn("label-mono", item.current ? "text-signal" : "text-muted")}>{item.period}</p>
                     {item.location ? <p className="label-mono mt-1 text-faint">{item.location}</p> : null}
                   </div>
                 </div>
@@ -68,7 +70,7 @@ export function Experience() {
                     </ul>
                   ) : null}
                   {item.technologies?.length ? (
-                    <p className="font-mono text-[0.8rem] text-faint">
+                    <p className={cn("font-mono text-[0.8rem]", item.current ? "text-signal" : "text-faint")}>
                       <span className="sr-only">{copy.experience.stackLabel}: </span>
                       {item.technologies.join(" · ")}
                     </p>

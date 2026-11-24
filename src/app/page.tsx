@@ -1,4 +1,5 @@
 import { JsonLd } from "@/components/seo/JsonLd";
+import { SectionBand } from "@/components/ui/SectionBand";
 import { personJsonLd, websiteJsonLd } from "@/lib/seo";
 import { About } from "@/sections/About";
 import { Contact } from "@/sections/Contact";
@@ -14,8 +15,11 @@ export default function HomePage() {
       <JsonLd data={websiteJsonLd()} />
       <Hero />
       <About />
+      <SectionBand />
       <Experience />
+      <SectionBand />
       <Projects />
+      <SectionBand />
       <Stack />
       <Contact />
     </>

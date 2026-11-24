@@ -14,10 +14,13 @@ export function Stack() {
           title={copy.stack.eyebrow}
           meta={`${stack.length} áreas · ${total} herramientas`}
         />
-        <div className="mt-14 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 md:mt-20 lg:grid-cols-5">
+        <div className="corner-marks mt-14 grid grid-cols-1 gap-px border border-moss-line bg-moss-line sm:grid-cols-2 md:mt-20 lg:grid-cols-5">
           {stack.map((group) => (
-            <div key={group.id} className="bg-ink p-5 md:p-6">
-              <h3 className="label-mono text-faint">{group.title}</h3>
+            <div key={group.id} className="group bg-moss p-5 transition-colors duration-300 hover:bg-moss-2 md:p-6">
+              <h3 className="label-mono flex items-center gap-2 text-signal">
+                <span aria-hidden="true" className="size-1.5 bg-signal" />
+                {group.title}
+              </h3>
               <ul className="mt-5 grid gap-2.5">
                 {group.items.map((item) => (
                   <li key={item} className="text-[1.05rem] leading-snug text-paper">

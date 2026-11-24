@@ -2,6 +2,7 @@ import { getCopy } from "@/lib/content";
 import { cn } from "@/lib/cn";
 import type { ProjectStatus } from "@/types/content";
 
+/** Estado del proyecto: punto lleno si está online, hueco si está en desarrollo. */
 export function StatusBadge({ status, className }: { status: ProjectStatus; className?: string }) {
   const label = getCopy().status[status];
   return (
@@ -9,8 +10,8 @@ export function StatusBadge({ status, className }: { status: ProjectStatus; clas
       <span
         aria-hidden="true"
         className={cn(
-          "size-[7px] rounded-full border",
-          status === "online" ? "border-paper bg-paper" : "border-signal bg-transparent",
+          "size-[7px] rounded-full border border-current",
+          status === "online" ? "bg-current text-signal" : "text-signal",
         )}
       />
       {label}
