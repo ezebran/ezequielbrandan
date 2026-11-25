@@ -13,14 +13,14 @@ export const copy = {
   hero: {
     claim: "Frontend con criterio de arquitectura.",
     description:
-      "Desarrollo interfaces con React y Next.js para proyectos empresariales en una consultora tecnológica, y construyo productos digitales propios que hoy están en producción.",
+      "Desarrollo interfaces con React y Next.js para proyectos empresariales y construyo productos digitales propios en producción. Hoy estoy llevando ese oficio hacia AI Product Engineering: productos donde la IA es parte de la experiencia.",
     primaryCta: "Ver proyectos",
     secondaryCta: "Contactar",
   },
   about: {
     eyebrow: "Sobre mí",
     title: "Producto y código, a la misma distancia.",
-    lead: "Soy desarrollador frontend. Trabajo con React, Next.js y TypeScript, y me importa tanto cómo se usa una interfaz como cómo está construida por dentro.",
+    lead: "Soy desarrollador frontend y estoy llevando mi carrera hacia AI Product Engineering. Trabajo con React, Next.js y TypeScript, y me importa tanto cómo se usa una interfaz como cómo está construida por dentro.",
     columns: [
       {
         label: "En equipo",
@@ -28,7 +28,7 @@ export const copy = {
       },
       {
         label: "Por mi cuenta",
-        text: "En paralelo construyo y publico productos propios: un medio digital, directorios de radio online para Argentina y Colombia, y un proyecto de fútbol. Me llevan a recorrer todo el camino, desde la interfaz hasta la base de datos, el SEO técnico y el despliegue.",
+        text: "En paralelo construyo y publico productos propios: un medio digital, una red de directorios de radio online para Argentina, Colombia, Brasil, España y el Reino Unido, y un proyecto de fútbol. Me llevan a recorrer todo el camino, desde la interfaz hasta la base de datos, el SEO técnico y el despliegue. Ese recorrido completo es el que ahora llevo a productos con IA.",
       },
     ],
   },

@@ -20,7 +20,7 @@ Portfolio personal de Ezequiel Brandan. Posicionarlo como **Senior Frontend Engi
 
 ## Positioning
 
-Combina experiencia en proyectos empresariales dentro de una consultora tecnológica (incluido un proyecto para Galicia Seguros) con productos digitales propios publicados y en producción: medios, directorios de radio y contenidos deportivos con tráfico real, más productos en desarrollo.
+Combina experiencia en proyectos empresariales dentro de una consultora tecnológica (incluido un proyecto para Galicia Seguros) con productos digitales propios publicados y en producción: medios, directorios de radio y contenidos deportivos con tráfico real, más productos en desarrollo. Está llevando su carrera de frontend hacia AI Product Engineering; esa transición se comunica como dirección, sin atribuirse experiencia en IA que no esté confirmada.
 
 ## Operating Context
 
@@ -41,6 +41,9 @@ Proyectos reales:
 - La Nueva Tele — https://lanuevatele.com.ar (publicado)
 - Radios Argentinas en Vivo — https://radiosargentinasenvivo.com.ar (publicado)
 - Radios Colombianas — https://radioscolombianas.com (publicado)
+- Rádios do Brasil — https://radiosdobrasil.com (publicado)
+- Radios Españolas — https://radiosespanolas.es (publicado)
+- UK Radios Live — https://ukradioslive.co.uk (publicado)
 - MuchoFulbo — https://muchofulbo.com (publicado)
 - EventoDe — fotos por QR proyectadas en pantallas durante eventos (en desarrollo)
 - PomoMood — Pomodoro con ejercicios de respiración (experimental)

@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site";
 import { getCopy, getProjects } from "@/lib/content";
 
 export const defaultTitle = `${siteConfig.name} · ${siteConfig.role}`;
-export const defaultDescription = `${siteConfig.name}, ${siteConfig.role} especializado en React, Next.js y TypeScript. Proyectos empresariales y productos digitales propios desde ${siteConfig.location.city}, ${siteConfig.location.country}.`;
+export const defaultDescription = `${siteConfig.name}, ${siteConfig.role} especializado en React, Next.js y TypeScript, en camino a AI Product Engineering. Proyectos empresariales y productos digitales propios desde ${siteConfig.location.city}, ${siteConfig.location.country}.`;
 
 export function absoluteUrl(path = "/") {
   return new URL(path, siteConfig.url).toString();
@@ -20,6 +20,7 @@ export const baseMetadata: Metadata = {
     siteConfig.name,
     "Senior Frontend Engineer",
     "Desarrollador frontend",
+    "AI Product Engineer",
     "React",
     "Next.js",
     "TypeScript",
