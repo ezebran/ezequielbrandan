@@ -41,7 +41,7 @@ export const baseMetadata: Metadata = {
     title: defaultTitle,
     description: defaultDescription,
   },
-  robots: { index: true, follow: true },
+  robots: { index: siteConfig.indexable, follow: siteConfig.indexable },
   formatDetection: { email: false, telephone: false, address: false },
 };
 

@@ -78,7 +78,13 @@ Para sumar inglés más adelante: crear `src/content/en/` con la misma forma que
 - Imagen Open Graph generada en el build (`src/app/opengraph-image.tsx`).
 - Fuentes servidas desde el propio dominio con `next/font`.
 
-Si cambia el dominio, actualizá `url` en `src/config/site.ts`.
+La URL pública se resuelve en `src/config/site.ts`:
+
+- Si existe `NEXT_PUBLIC_SITE_URL`, se usa esa.
+- En producción de Vercel se usa el dominio de producción del proyecto (`VERCEL_PROJECT_PRODUCTION_URL`): la URL `*.vercel.app` mientras no haya dominio propio, y `ezequielbrandan.com.ar` en cuanto se conecte.
+- Solo el dominio definitivo se indexa. Con una URL temporal, el sitio sale con `noindex` y `robots.txt` bloquea a los buscadores.
+
+Si cambia el dominio definitivo, actualizá `primaryUrl` en `src/config/site.ts`.
 
 ## Subir a GitHub
 
@@ -102,6 +108,7 @@ git push -u origin main
 1. En el proyecto de Vercel: **Settings → Domains** y agregá `ezequielbrandan.com.ar` (y `www.ezequielbrandan.com.ar` redirigiendo al dominio principal).
 2. Vercel te muestra los registros DNS a cargar en tu proveedor del dominio (para `.com.ar`, NIC Argentina o el DNS que uses).
 3. Cuando el dominio verifique, el certificado HTTPS se emite solo.
+4. Hacé un **Redeploy** del último deploy de producción: así canonical, sitemap y Open Graph pasan al dominio propio y el sitio empieza a indexarse.
 
 ## Checklist antes de publicar
 
