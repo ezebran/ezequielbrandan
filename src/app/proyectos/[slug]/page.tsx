@@ -12,7 +12,7 @@ import { StatusBadge } from "@/components/ui/StatusBadge";
 import { siteConfig } from "@/config/site";
 import { getCopy, getProject, getProjects } from "@/lib/content";
 import { absoluteUrl } from "@/lib/seo";
-import type { Project } from "@/types/content";
+import type { Project, ProjectSite } from "@/types/content";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -79,6 +79,43 @@ function List({ items }: { items: string[] }) {
   );
 }
 
+function SiteCard({ site, sizes, className }: { site: ProjectSite; sizes: string; className?: string }) {
+  return (
+    <li className={className}>
+      <a
+        href={site.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex h-full flex-col border border-line bg-plate transition-colors duration-300 hover:border-signal"
+      >
+        <span className="block overflow-hidden border-b border-line">
+          <Image
+            src={site.image.src}
+            alt={site.image.alt}
+            width={site.image.width}
+            height={site.image.height}
+            sizes={sizes}
+            className="aspect-[16/10] h-auto w-full object-cover object-top transition-transform duration-700 ease-out-expo group-hover:scale-[1.02]"
+          />
+        </span>
+        <span className="flex flex-1 flex-col gap-3 p-4 md:p-5">
+          <span className="label-mono text-faint">
+            {site.market} · {site.language}
+          </span>
+          <span className="font-semiwide text-[clamp(1.25rem,1.8vw,1.6rem)] leading-none font-bold tracking-[-0.02em] text-signal">
+            {site.name}
+          </span>
+          <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm text-muted transition-colors group-hover:text-paper">
+            {hostname(site.url)}
+            <ArrowUpRight className="size-3.5 shrink-0" aria-hidden="true" />
+            <span className="sr-only">(abre en otra pestaña)</span>
+          </span>
+        </span>
+      </a>
+    </li>
+  );
+}
+
 function NeighborLink({ project, direction, label }: { project: Project; direction: "previous" | "next"; label: string }) {
   const Icon = direction === "previous" ? ArrowLeft : ArrowRight;
   return (
@@ -113,6 +150,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     { label: t.status, value: <StatusBadge status={project.status} className="text-paper" /> },
     { label: t.category, value: project.category },
   ];
+  for (const metric of project.metrics ?? []) facts.push({ label: metric.label, value: metric.value });
+  if (project.sites?.length) facts.push({ label: t.sites, value: String(project.sites.length) });
   if (project.technologies?.length) facts.push({ label: t.technologies, value: project.technologies.join(" · ") });
   if (project.url)
     facts.push({
@@ -155,6 +194,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     description: project.description ?? project.shortDescription,
     url: absoluteUrl(`/proyectos/${project.slug}`),
     ...(project.url ? { sameAs: project.url } : {}),
+    ...(project.sites?.length
+      ? { hasPart: project.sites.map((site) => ({ "@type": "WebSite", name: site.name, url: site.url, inLanguage: site.language })) }
+      : {}),
     ...(project.cover ? { image: absoluteUrl(project.cover.src) } : {}),
     creator: { "@id": `${siteConfig.url}/#person` },
     inLanguage: siteConfig.locale,
@@ -200,7 +242,27 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </Container>
 
       <Container className="mt-12 md:mt-16">
-        {project.cover ? (
+        {project.sites?.length ? (
+          <section aria-labelledby="sitios">
+            <h2 id="sitios" className="sr-only">
+              {t.sites}
+            </h2>
+            <ul className="grid gap-4 md:grid-cols-6 md:gap-6">
+              {project.sites.map((site, i) => (
+                <SiteCard
+                  key={site.url}
+                  site={site}
+                  className={i < 2 ? "md:col-span-3" : "md:col-span-2"}
+                  sizes={
+                    i < 2
+                      ? "(min-width: 1320px) 610px, (min-width: 768px) 50vw, calc(100vw - 40px)"
+                      : "(min-width: 1320px) 400px, (min-width: 768px) 33vw, calc(100vw - 40px)"
+                  }
+                />
+              ))}
+            </ul>
+          </section>
+        ) : project.cover ? (
           <DeviceShots
             project={project}
             priority

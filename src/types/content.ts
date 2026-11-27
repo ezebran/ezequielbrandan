@@ -11,6 +11,22 @@ export interface ProjectImage {
   device: "desktop" | "mobile";
 }
 
+/** Un sitio dentro de un proyecto que agrupa varios (por ejemplo, una red de directorios). */
+export interface ProjectSite {
+  name: string;
+  url: string;
+  /** País o mercado al que apunta. */
+  market: string;
+  language: string;
+  image: ProjectImage;
+}
+
+/** Dato confirmado del proyecto, se muestra en la ficha técnica. */
+export interface ProjectMetric {
+  label: string;
+  value: string;
+}
+
 export interface Project {
   slug: string;
   name: string;
@@ -31,6 +47,9 @@ export interface Project {
   solution?: string;
   decisions?: string[];
   learnings?: string[];
+  /** Sitios que forman el proyecto. Se muestran en su página. */
+  sites?: ProjectSite[];
+  metrics?: ProjectMetric[];
 }
 
 export interface Experience {
