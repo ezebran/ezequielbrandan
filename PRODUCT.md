@@ -45,10 +45,10 @@ Proyectos reales:
 - Radios Españolas — https://radiosespanolas.es (publicado)
 - UK Radios Live — https://ukradioslive.co.uk (publicado)
 - MuchoFulbo — https://muchofulbo.com (publicado)
-- EventoDe — fotos por QR proyectadas en pantallas durante eventos (en desarrollo)
+- EventoDe — https://eventode.com (publicado, proyecto principal): invitación, fotos por QR en la pantalla del salón y álbum
 - PomoMood — Pomodoro con ejercicios de respiración (experimental)
 
-Imágenes: capturas de los sitios en vivo; EventoDe y PomoMood sin material todavía.
+Imágenes: capturas de los sitios en vivo; PomoMood sin material todavía.
 
 Experiencia laboral confirmada desde el perfil de LinkedIn (2018 a la actualidad), cargada en `src/content/es/experience.ts`. Email y GitHub confirmados en `src/config/site.ts`.
 

@@ -28,7 +28,7 @@ export const copy = {
       },
       {
         label: "Por mi cuenta",
-        text: "En paralelo construyo y publico productos propios: un medio digital, una red de directorios de radio online para Argentina, Colombia, Brasil, España y el Reino Unido, y un proyecto de fútbol. Me llevan a recorrer todo el camino, desde la interfaz hasta la base de datos, el SEO técnico y el despliegue. Ese recorrido completo es el que ahora llevo a productos con IA.",
+        text: "En paralelo construyo y publico productos propios: una plataforma para eventos, un medio digital, una red de directorios de radio online para Argentina, Colombia, Brasil, España y el Reino Unido, y un proyecto de fútbol. Me llevan a recorrer todo el camino, desde la interfaz hasta la base de datos, el SEO técnico y el despliegue. Ese recorrido completo es el que ahora llevo a productos con IA.",
       },
     ],
   },

@@ -7,23 +7,26 @@ import type { Project } from "@/types/content";
  */
 export const projects: Project[] = [
   {
-    slug: "la-nueva-tele",
-    name: "La Nueva Tele",
-    shortDescription: "Portal digital de noticias.",
-    category: "Medio digital",
+    slug: "eventode",
+    name: "EventoDe",
+    shortDescription:
+      "Plataforma para fiestas y eventos: con un solo QR, la invitación, las fotos de los invitados en la pantalla del salón y el álbum.",
+    description:
+      "Plataforma digital para eventos. Antes de la fiesta, el link es la invitación con las confirmaciones de asistencia. Durante el evento, los invitados escanean un QR, sacan una foto y aparece en la pantalla del salón con su nombre. Después, ese mismo link es el álbum.",
+    category: "Plataforma de eventos",
     status: "online",
-    url: "https://lanuevatele.com.ar",
+    url: "https://eventode.com",
     cover: {
-      src: "/projects/la-nueva-tele/cover.webp",
-      alt: "Portada de La Nueva Tele en escritorio.",
+      src: "/projects/eventode/cover.webp",
+      alt: "Portada de EventoDe: las fotos de los invitados en la pantalla de la fiesta.",
       width: 2400,
       height: 1500,
       device: "desktop",
     },
     gallery: [
       {
-        src: "/projects/la-nueva-tele/mobile.webp",
-        alt: "La Nueva Tele en un teléfono.",
+        src: "/projects/eventode/mobile.webp",
+        alt: "EventoDe en un teléfono.",
         width: 780,
         height: 1688,
         device: "mobile",
@@ -139,14 +142,28 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "eventode",
-    name: "EventoDe",
-    shortDescription:
-      "Plataforma para eventos: las fotos se comparten con un código QR y se proyectan en pantallas durante el evento.",
-    description:
-      "Plataforma digital para eventos. Permite compartir fotografías mediante códigos QR y visualizarlas en pantallas durante los eventos.",
-    category: "Plataforma de eventos",
-    status: "en-desarrollo",
+    slug: "la-nueva-tele",
+    name: "La Nueva Tele",
+    shortDescription: "Portal digital de noticias.",
+    category: "Medio digital",
+    status: "online",
+    url: "https://lanuevatele.com.ar",
+    cover: {
+      src: "/projects/la-nueva-tele/cover.webp",
+      alt: "Portada de La Nueva Tele en escritorio.",
+      width: 2400,
+      height: 1500,
+      device: "desktop",
+    },
+    gallery: [
+      {
+        src: "/projects/la-nueva-tele/mobile.webp",
+        alt: "La Nueva Tele en un teléfono.",
+        width: 780,
+        height: 1688,
+        device: "mobile",
+      },
+    ],
   },
   {
     slug: "pomomood",
